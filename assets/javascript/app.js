@@ -1,12 +1,12 @@
 $(document).ready(function() {
-
     //Set up questions
     var q1 = {
         question: "Which player has the most career points?",
-        answer: "Kareem Abdul-Jabar",
+        answer: "Kareem Abdul-Jabbar",
         wrongs:[ "Kobe Bryant",
          "Magic Johnson",
-         "Bill Russel"]
+         "Bill Russel"],
+         pic: "assets/images/Kareem-Abdul-Jabbar.jpg"
     };
 
     var q2 = {
@@ -14,15 +14,17 @@ $(document).ready(function() {
         answer: "John Stockton",
         wrongs:[ "Magic Johnson",
          "Steve Nash",
-         "Jason Kidd"]
+         "Jason Kidd"],
+         pic: "assets/images/john-stockton.jpg"
     };
 
     var q3 = {
         question: "Which player has the most career rebounds?",
         answer: "Wilt Chamberlain",
         wrongs: ["Shaquille O'Neal",
-        "Kareem Abdul-Jabar",
-        "Bill Russel"]
+        "Kareem Abdul-Jabbar",
+        "Bill Russel"],
+        pic: "assets/images/wilt-chamberlain.jpg"
     };
 
     var q4 = {
@@ -30,7 +32,8 @@ $(document).ready(function() {
         answer: "John Stockton",
         wrongs: ["Jason Kidd",
          "Michael Jordan",
-         "Gary Payton"]
+         "Gary Payton"],
+         pic: "assets/images/john-stockton.jpg"
     };
 
     var q5 = {
@@ -38,10 +41,42 @@ $(document).ready(function() {
         answer: "Hakeem Olajuwon",
         wrongs: ["Dikembe Mutombo",
         "Marcus Camby",
-        "Bill Russel"]
+        "Bill Russel"],
+        pic: "assets/images/hakeem-olajuwon.jpg"
     };
 
-    var questions = [q1, q2, q3, q4, q5];
+    var q6 = {
+        question: "Who was the youngest player to get a triple double?",
+        answer: "Markelle Fultz",
+        wrongs: ["Lebron James",
+                "Lonzo Ball",
+                "Magic Johnson"],
+        pic: "assets/images/markelle-fultz.jpg"
+    };
+
+    var q7 = {
+        question: "Who has the highest career free throw percentage?",
+        answer: "Steve Nash",
+        wrongs: [
+            "Steve Kerr",
+            "Ray Allen",
+            "Steph Curry"
+        ],
+        pic: "assets/images/steve-nash.jpg"
+    };
+
+    var q8 = {
+        question: "Who has the best single season 3-point field goal percentage?",
+        answer: "Kyle Korver",
+        wrongs: [
+            "Kobe Bryant",
+            "Steph Curry",
+            "Ray Allen"
+        ],
+        pic: "assets/images/kyle-korver.jpg"
+    };
+
+    var questions = [q1, q2, q3, q4, q5, q6, q7, q8];
     var page = $("#page");
     var timer;
     var currentQuestion = 0;
@@ -82,6 +117,7 @@ $(document).ready(function() {
         var option3 = $("<p>");
         var option4 = $("<p>");
 
+        //Ensure that answers are put in random postions on the page
         var options = [option1, option2, option3, option4];
         var wrongs = [];
 
@@ -94,31 +130,6 @@ $(document).ready(function() {
             wrongs.push(options[i]);
         }
 
-
-  /*       option1.text(thequestion.wrong2);
-        option2.text(thequestion.answer);
-        option3.text(thequestion.wrong1);
-        option4.text(thequestion.wrong3); */
-
-
-
-       /*  var wrongs = [option1, option3, option4];
-
-        var correctanswer = option2; */
-
-        //Make correct answers appear in random positions
-      /*   var wrongs = [];
-
-        var correctanswer_index = Math.floor(Math.random() * 4);
-        for(var i=0 ; i<options.length ; i++){
-            if(i != correctanswer_index){
-                wrongs[i] = options[i];
-                options.splice(i, 1);
-            }
-        }
-
-        console.log("Options: " + options);
-        correctanswer = options[0]; */
 
         var timeleft = 5;
 
@@ -161,7 +172,7 @@ $(document).ready(function() {
 
         clearInterval(timer);
 
-        timer = setTimeout(runQuestionPage, 3000);
+        timer = setTimeout(runQuestionPage, 3500);
 
         page.empty();
         var feedback = $("<p>");
@@ -186,6 +197,7 @@ $(document).ready(function() {
         correctAnswerDisplay.text("The correct answer was " + thequestion.answer);
         page.append(feedback);
         page.append(correctAnswerDisplay);
+        page.append($("<img>").attr("src", thequestion.pic));
 
         //When all questions are finished, show final results page
         console.log("Current question: " + currentQuestion);
