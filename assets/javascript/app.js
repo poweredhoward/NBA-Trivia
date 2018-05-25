@@ -86,6 +86,7 @@ $(document).ready(function() {
 
 
     var startButton = $("<button>");
+    startButton.attr("id", "startButton");
 
     //What to show when the page loads
     function startPage(){
@@ -112,13 +113,16 @@ $(document).ready(function() {
         page.empty();
         var timedisplay = $("<p>");
         var questiondisplay = $("<p>");
-        var option1 = $("<p>");
-        var option2 = $("<p>");
-        var option3 = $("<p>");
-        var option4 = $("<p>");
+        var option1 = $("<button>");
+        var option2 = $("<button>");
+        var option3 = $("<button>");
+        var option4 = $("<button>");
 
         //Ensure that answers are put in random postions on the page
         var options = [option1, option2, option3, option4];
+        options.forEach( function(o){
+            o.addClass("option");
+        })
         var wrongs = [];
 
         var correctanswer_index = Math.floor(Math.random() * 4);
@@ -131,7 +135,7 @@ $(document).ready(function() {
         }
 
 
-        var timeleft = 5;
+        var timeleft = 10;
 
         timedisplay.text(timeleft);
         questiondisplay.text(thequestion.question);
@@ -205,7 +209,7 @@ $(document).ready(function() {
             clearTimeout(timer);
             setTimeout(function(){
                 resultPage();
-            }, 3000);
+            }, 3300);
         }
         
     }
@@ -227,7 +231,7 @@ $(document).ready(function() {
 
         setTimeout(function(){
             startPage();
-        }, 3000);
+        }, 3300);
         
     }
 

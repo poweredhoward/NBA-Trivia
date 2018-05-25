@@ -1,0 +1,54 @@
+body {
+    background-color: rgb(235, 191, 82);
+    width: 100%;
+    position: relative;
+    text-align: center;
+}
+
+h1 {
+    font-size: 500%;
+    text-align: center;
+    margin: 20px;
+    color: purple;
+    
+}
+
+button {
+    height: 75px;
+    width: 220px;
+    background-color: blue;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: white;
+    border: 5px purple solid;
+}
+
+button:hover {
+    background-color: rgb(104, 39, 209);
+    transform: translateX(15px);
+
+}
+
+#startButton {
+    position: relative;
+    top: 150px;
+}
+
+p {
+    color: purple;
+    text-align: center;
+    font-size: 200%;
+}
+
+img {
+    max-width: 420px;
+    min-width: 300px;
+    max-height: 420px;
+    min-height: 300px;
+    height: auto;
+    width: auto;
+    margin: auto 0;
+}
