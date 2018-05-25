@@ -111,7 +111,7 @@ $(document).ready(function() {
         }
 
         page.empty();
-        var timedisplay = $("<p>");
+        var timedisplay = $("<span>");
         var questiondisplay = $("<p>");
         var option1 = $("<button>");
         var option2 = $("<button>");
